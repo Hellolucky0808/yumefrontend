@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Software Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal active">
+        <div class="modal-content">
+            <div class="login-form">
+                <h2><i class="fas fa-shield-alt"></i> Admin Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="adminUser" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="adminPass" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <header class="admin-header">
+            <div class="admin-logo">
+                <i class="fas fa-cogs"></i>
+                <span>Admin Panel</span>
+            </div>
+            <div class="admin-actions">
+                <button id="logoutBtn" class="btn btn-secondary">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <div class="admin-container">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <ul>
+                    <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#leads"><i class="fas fa-users"></i> All Leads</a></li>
+                    <li><a href="#export"><i class="fas fa-download"></i> Export Data</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="admin-main">
+                <!-- Dashboard -->
+                <section id="dashboard" class="admin-section active">
+                    <h2>Dashboard Overview</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-user-plus"></i>
+                            <div>
+                                <h3 id="totalLeads">0</h3>
+                                <span>Total Leads</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3 id="todayLeads">0</h3>
+                                <span>Today's Leads</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <h3 id="priorityLeads">0</h3>
+                                <span>Priority Leads</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Leads Section -->
+                <section id="leads" class="admin-section">
+                    <div class="section-header">
+                        <h2>All Leads</h2>
+                        <div class="search-filter">
+                            <input type="text" id="searchLeads" placeholder="Search leads...">
+                            <select id="filterService">
+                                <option value="">All Services</option>
+                                <option value="ai">AI & ML</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="cloud">Cloud</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="leadsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Company</th>
+                                    <th>Service</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Export Section -->
+                <section id="export" class="admin-section">
+                    <h2>Export Data</h2>
+                    <div class="export-options">
+                        <button id="exportCSV" class="btn btn-primary">
+                            <i class="fas fa-file-csv"></i> Export CSV
+                        </button>
+                        <button id="exportJSON" class="btn btn-secondary">
+                            <i class="fas fa-file-code"></i> Export JSON
+                        </button>
+                        <button id="clearAll" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Clear All Data
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Settings -->
+                <section id="settings" class="admin-section">
+                    <h2>Settings</h2>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label>Admin Username</label>
+                            <input type="text" id="adminUsername" value="admin">
+                        </div>
+                        <div class="setting-item">
+                            <label>Admin Password</label>
+                            <input type="password" id="adminPassword" value="admin123">
+                        </div>
+                        <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
